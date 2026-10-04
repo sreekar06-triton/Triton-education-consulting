@@ -41,8 +41,8 @@ export default function CurrencySection({ onFullCurrencyPage }) {
   };
 
   return (
-    <section className="bg-[#0e0e12] py-28 md:py-36 border-t border-white/10 relative">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+    <section className="bg-[#0e0e12] site-section-padding border-t border-white/10 relative">
+      <div className="site-container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
           {/* Left Column: Heading & Financial Narrative */}
@@ -75,13 +75,13 @@ export default function CurrencySection({ onFullCurrencyPage }) {
           </div>
 
           {/* Right Column: Premium Integrated Editorial Currency Converter */}
-          <div className="lg:col-span-7 bg-[#070709] border border-white/15 p-8 md:p-12 relative shadow-2xl">
-            <div className="flex items-center justify-between pb-6 border-b border-white/10 mb-8">
+          <div className="lg:col-span-7 bg-[#070709] border border-white/15 p-8 md:p-14 lg:p-16 rounded-2xl relative shadow-2xl space-y-8">
+            <div className="flex items-center justify-between pb-6 border-b border-white/10">
               <span className="label-mono text-white/70 flex items-center gap-2">
                 <Calculator className="w-4 h-4" />
                 <span>STUDENT FINANCIAL CALCULATOR</span>
               </span>
-              <span className="label-mono text-white/40 text-[0.65rem]">
+              <span className="label-mono text-white/40 text-[0.68rem]">
                 RATES UPDATED: TODAY 19:25 UTC
               </span>
             </div>
@@ -89,8 +89,8 @@ export default function CurrencySection({ onFullCurrencyPage }) {
             <div className="space-y-8">
               {/* FROM Currency Input */}
               <div>
-                <label className="label-mono text-white/40 block mb-2">YOU SEND / BUDGET IN</label>
-                <div className="flex items-center gap-4 border-b border-white/20 pb-2">
+                <label className="label-mono text-white/40 block mb-3">YOU SEND / BUDGET IN</label>
+                <div className="flex items-center gap-4 border-b border-white/20 pb-3">
                   <span className="font-mono text-2xl text-white/60 font-light">
                     {currencySymbols[fromCurrency]}
                   </span>
@@ -104,7 +104,7 @@ export default function CurrencySection({ onFullCurrencyPage }) {
                   <select
                     value={fromCurrency}
                     onChange={(e) => setFromCurrency(e.target.value)}
-                    className="bg-[#141418] text-white font-mono text-sm px-4 py-2 border border-white/20 outline-none cursor-pointer"
+                    className="bg-[#141418] text-white font-mono text-sm px-4 py-2.5 rounded-lg border border-white/20 outline-none cursor-pointer"
                   >
                     {Object.keys(ratesInINR).map((c) => (
                       <option key={c} value={c}>{c}</option>

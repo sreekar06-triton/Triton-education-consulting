@@ -32,15 +32,15 @@ export default function Hero({ onStartJourney }) {
         <div className="absolute inset-0 hero-overlay" />
       </motion.div>
 
-      {/* Main Content Layout — Centered Container with Asymmetric Editorial Headline */}
-      <div className="relative z-10 max-w-[1350px] w-full mx-auto px-6 md:px-12 pt-32 md:pt-40 pb-16 flex-1 flex flex-col justify-between">
+      {/* Main Content Layout — Centered Container with Integrated Editorial Headline & Facts */}
+      <div className="relative z-10 site-container w-full pt-32 md:pt-40 pb-20 flex-1 flex flex-col justify-between">
         
         {/* Upper Meta Tag */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-wrap items-center justify-between gap-4 border-b border-white/15 pb-4"
+          className="flex flex-wrap items-center justify-between gap-4 border-b border-white/15 pb-4 mb-8"
         >
           <span className="label-mono text-white/80 font-bold">
             [01] TRITON EDUCATION CONSULTING
@@ -50,61 +50,60 @@ export default function Hero({ onStartJourney }) {
           </span>
         </motion.div>
 
-        {/* Main Editorial Headline */}
+        {/* Main Editorial Layout Grid */}
         <motion.div
           style={{ opacity: opacityText, y: yText }}
-          className="my-auto py-8 flex flex-col items-end text-right w-full"
+          className="my-auto py-10 md:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center"
         >
+          {/* Left Column: Headline, Narrative & Integrated CTA */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-4xl"
+            className="lg:col-span-7 space-y-8"
           >
-            <h1 className="display-huge text-white mb-3 tracking-tight">
-              STUDY ABROAD.
-            </h1>
-            <h2 className="display-large text-white/90 font-light tracking-tight">
-              We Help You From <br />
-              <span className="editorial-serif italic font-normal text-white">
-                Admission to Arrival.
-              </span>
-            </h2>
-          </motion.div>
-        </motion.div>
+            <div>
+              <h1 className="display-huge text-white mb-3 tracking-tight">
+                STUDY ABROAD.
+              </h1>
+              <h2 className="display-large text-white/90 font-light tracking-tight">
+                We Help You From <br />
+                <span className="editorial-serif italic font-normal text-white">
+                  Admission to Arrival.
+                </span>
+              </h2>
+            </div>
 
-        {/* PROMINENT KEY FACTS BAR & CTA — Highlight Data */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="space-y-8 pt-6 border-t border-white/15"
-        >
-          {/* Key Facts Data Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {keyFacts.map((fact) => (
-              <div key={fact.label} className="fact-card space-y-1">
-                <span className="label-mono text-white/50 text-[0.7rem] block">{fact.label}</span>
-                <p className="font-mono text-2xl md:text-3xl font-bold text-white tracking-tight">{fact.stat}</p>
-                <p className="font-sans text-xs text-white/70 font-light">{fact.detail}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Narrative & CTA */}
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pt-2">
-            <p className="font-sans text-sm md:text-base text-white/80 font-light leading-relaxed max-w-xl">
+            <p className="font-sans text-base md:text-lg text-white/80 font-light leading-relaxed max-w-prose-editorial">
               From choosing accredited universities to embassy visa clearances and student flight bookings, we make your international journey transparent, secure, and stress-free.
             </p>
 
-            <button
-              onClick={onStartJourney}
-              className="btn-pill-white shrink-0"
-            >
-              <span>START YOUR JOURNEY</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </button>
-          </div>
+            <div className="pt-2 flex flex-wrap items-center gap-5">
+              <button
+                onClick={onStartJourney}
+                className="btn-pill-white"
+              >
+                <span>START YOUR JOURNEY</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </button>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Integrated Key Facts Metrics Cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="lg:col-span-5 grid grid-cols-2 gap-5 md:gap-6"
+          >
+            {keyFacts.map((fact) => (
+              <div key={fact.label} className="fact-card">
+                <span className="label-mono text-white/50 text-[0.68rem] block">{fact.label}</span>
+                <p className="font-mono text-2xl md:text-3xl font-bold text-white tracking-tight">{fact.stat}</p>
+                <p className="font-sans text-xs text-white/70 font-light leading-relaxed">{fact.detail}</p>
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
 
       </div>

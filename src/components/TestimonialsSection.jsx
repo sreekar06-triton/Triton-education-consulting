@@ -17,8 +17,8 @@ export default function TestimonialsSection() {
   const item = TESTIMONIALS[currentIndex];
 
   return (
-    <section className="bg-section-dark py-28 md:py-36 border-t border-white/10 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+    <section className="bg-section-dark site-section-padding border-t border-white/10 relative overflow-hidden">
+      <div className="site-container">
         <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-16">
           <span className="label-mono text-white/50">
             [10] STUDENT VOICES & REVIEWS
@@ -52,7 +52,7 @@ export default function TestimonialsSection() {
             className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
           >
             {/* Large Authentic Student Photography */}
-            <div className="lg:col-span-5 relative aspect-[3/4] border border-white/10 overflow-hidden img-zoom-wrapper">
+            <div className="lg:col-span-5 relative aspect-[3/4] border border-white/10 rounded-2xl overflow-hidden img-zoom-wrapper shadow-2xl">
               <img
                 src={item.image}
                 alt={item.studentName}
@@ -62,10 +62,10 @@ export default function TestimonialsSection() {
             </div>
 
             {/* Oversized Quote Typography */}
-            <div className="lg:col-span-7 flex flex-col justify-between">
+            <div className="lg:col-span-7 flex flex-col justify-between space-y-8">
               <div>
                 <Quote className="w-12 h-12 text-white/30 mb-6" />
-                <p className="font-serif italic text-2xl md:text-4xl text-white font-normal leading-snug mb-10">
+                <p className="font-serif italic text-2xl md:text-4xl text-white font-normal leading-snug max-w-prose-wide">
                   "{item.quote}"
                 </p>
               </div>

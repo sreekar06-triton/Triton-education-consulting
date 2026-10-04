@@ -5,8 +5,8 @@ export default function UniversityDetailModal({ university, onClose, onApply }) 
   if (!university) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 md:p-8">
-      <div className="bg-[#070709] border border-white/20 w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl relative text-white">
+    <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-6 sm:p-10">
+      <div className="bg-[#0e0e12] border border-white/20 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl relative text-white">
         
         {/* Hero Header Image */}
         <div className="relative h-64 md:h-80 w-full overflow-hidden">
@@ -15,17 +15,17 @@ export default function UniversityDetailModal({ university, onClose, onApply }) 
             alt={university.name}
             className="w-full h-full object-cover filter brightness-[0.7]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-transparent to-transparent opacity-90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0e0e12] via-transparent to-transparent opacity-95" />
           
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 p-2 bg-black/60 hover:bg-black text-white border border-white/20 rounded-full cursor-pointer"
+            className="absolute top-6 right-6 p-2.5 bg-black/60 hover:bg-black text-white border border-white/20 rounded-full cursor-pointer transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
 
-          <div className="absolute bottom-6 left-6 right-6">
-            <span className="label-mono text-white/60 block mb-1">
+          <div className="absolute bottom-6 left-8 right-8">
+            <span className="label-mono text-white/60 block mb-2">
               {university.flag} {university.country} • {university.city}
             </span>
             <h2 className="font-sans text-2xl md:text-4xl font-bold uppercase tracking-wider text-white">
@@ -35,12 +35,12 @@ export default function UniversityDetailModal({ university, onClose, onApply }) 
         </div>
 
         {/* Content Details */}
-        <div className="p-6 md:p-10 space-y-8 font-sans">
+        <div className="p-8 sm:p-12 md:p-14 space-y-10 font-sans">
           
           {/* Key Specs Matrix */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pb-6 border-b border-white/10 font-mono text-xs">
-            <div className="bg-[#121217] p-4 border border-white/10">
-              <span className="text-white/40 block text-[0.65rem] mb-1">RANKING / REPUTATION</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pb-8 border-b border-white/10 font-mono text-xs">
+            <div className="bg-[#14141c] p-6 border border-white/15 rounded-xl space-y-1">
+              <span className="text-white/40 block text-[0.68rem] tracking-wider uppercase">RANKING / REPUTATION</span>
               <span className="text-white font-bold text-sm">{university.ranking}</span>
             </div>
 

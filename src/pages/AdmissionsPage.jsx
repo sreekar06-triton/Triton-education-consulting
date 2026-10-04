@@ -30,7 +30,7 @@ export default function AdmissionsPage({ onOpenPortal }) {
 
   return (
     <div className="w-full bg-[#070709] text-white pt-32 pb-36 min-h-screen font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div className="site-container">
         
         {/* Header */}
         <div className="border-b border-white/10 pb-8 mb-16">
@@ -48,22 +48,22 @@ export default function AdmissionsPage({ onOpenPortal }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
-          {/* Interactive Eligibility Evaluator */}
-          <div className="lg:col-span-6 bg-[#0e0e12] border border-white/20 p-8 md:p-12">
-            <div className="flex items-center gap-3 mb-4">
+          {/* Interactive Eligibility Evaluator - Generous Container Padding */}
+          <div className="lg:col-span-6 bg-[#0e0e12] border border-white/20 p-8 md:p-14 lg:p-16 rounded-2xl shadow-2xl space-y-8">
+            <div className="flex items-center gap-3">
               <Calculator className="w-5 h-5 text-white" />
               <span className="label-mono text-white/50">INSTANT PROFILE CHECKER</span>
             </div>
 
-            <h2 className="font-sans text-2xl font-bold uppercase tracking-wider text-white mb-6">
+            <h2 className="font-sans text-2xl font-bold uppercase tracking-wider text-white">
               Evaluate Your Admission Chances
             </h2>
 
-            <form onSubmit={calculateEligibility} className="space-y-6">
+            <form onSubmit={calculateEligibility} className="space-y-8">
               <div>
-                <label className="label-mono text-white/50 block mb-2">GPA / PERCENTAGE (OUT OF 4.0 OR 100%)</label>
+                <label className="label-mono text-white/50 block mb-3">GPA / PERCENTAGE (OUT OF 4.0 OR 100%)</label>
                 <input
                   type="text"
                   value={gpa}
@@ -73,13 +73,13 @@ export default function AdmissionsPage({ onOpenPortal }) {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div>
-                  <label className="label-mono text-white/50 block mb-2">ENGLISH SCORE (IELTS/PTE/TOEFL)</label>
+                  <label className="label-mono text-white/50 block mb-3">ENGLISH SCORE (IELTS/PTE/TOEFL)</label>
                   <select
                     value={testScore}
                     onChange={(e) => setTestScore(e.target.value)}
-                    className="bg-transparent border-b border-white/20 text-white font-sans text-base py-2 w-full outline-none cursor-pointer"
+                    className="bg-transparent border-b border-white/20 text-white font-sans text-base py-3 w-full outline-none cursor-pointer"
                   >
                     <option value="IELTS 7.0+" className="bg-[#070709]">IELTS 7.0+ / TOEFL 95+</option>
                     <option value="IELTS 6.5" className="bg-[#070709]">IELTS 6.5 / TOEFL 85</option>
@@ -89,11 +89,11 @@ export default function AdmissionsPage({ onOpenPortal }) {
                 </div>
 
                 <div>
-                  <label className="label-mono text-white/50 block mb-2">DEGREE LEVEL</label>
+                  <label className="label-mono text-white/50 block mb-3">DEGREE LEVEL</label>
                   <select
                     value={degreeInterest}
                     onChange={(e) => setDegreeInterest(e.target.value)}
-                    className="bg-transparent border-b border-white/20 text-white font-sans text-base py-2 w-full outline-none cursor-pointer"
+                    className="bg-transparent border-b border-white/20 text-white font-sans text-base py-3 w-full outline-none cursor-pointer"
                   >
                     <option value="Bachelor" className="bg-[#070709]">Bachelor Degree (Undergraduate)</option>
                     <option value="Master" className="bg-[#070709]">Master Degree (Postgraduate)</option>
@@ -104,7 +104,7 @@ export default function AdmissionsPage({ onOpenPortal }) {
 
               <button
                 type="submit"
-                className="btn-pill-white w-full text-center justify-center !py-3.5"
+                className="btn-pill-white w-full text-center justify-center !py-4"
               >
                 CALCULATE ADMISSION ELIGIBILITY
               </button>

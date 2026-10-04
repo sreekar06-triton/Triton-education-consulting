@@ -43,8 +43,8 @@ export default function DashboardPreview({ openPortal }) {
   };
 
   return (
-    <section className="bg-section-dark py-28 md:py-36 border-t border-white/10 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+    <section className="bg-section-dark site-section-padding border-t border-white/10 relative overflow-hidden">
+      <div className="site-container">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="label-mono text-white/40 block mb-4">
@@ -74,11 +74,11 @@ export default function DashboardPreview({ openPortal }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-[#0e0e12] border border-white/20 shadow-2xl overflow-hidden"
+          className="bg-[#0e0e12] border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
         >
           {/* Top Mock Window Bar */}
-          <div className="bg-[#16161c] px-6 py-4 border-b border-white/10 flex items-center justify-between font-mono text-xs text-white/60">
-            <div className="flex items-center gap-2">
+          <div className="bg-[#16161c] px-8 py-5 border-b border-white/10 flex items-center justify-between font-mono text-xs text-white/60">
+            <div className="flex items-center gap-3">
               <span className="w-3 h-3 rounded-full bg-white/20"></span>
               <span className="w-3 h-3 rounded-full bg-white/20"></span>
               <span className="w-3 h-3 rounded-full bg-white/20"></span>
@@ -93,11 +93,11 @@ export default function DashboardPreview({ openPortal }) {
           </div>
 
           {/* Interactive Mockup Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
             
             {/* Left Mock Sidebar */}
-            <div className="lg:col-span-3 border-r border-white/10 bg-[#0a0a0e] p-6 flex flex-col gap-2">
-              <span className="label-mono text-white/40 block mb-3 text-[0.65rem]">PORTAL MODULES</span>
+            <div className="lg:col-span-3 border-r border-white/10 bg-[#0a0a0e] p-6 lg:p-8 flex flex-col gap-3">
+              <span className="label-mono text-white/40 block mb-4 text-[0.68rem] tracking-wider">PORTAL MODULES</span>
 
               {[
                 { id: 'applications', label: 'Applications', icon: GraduationCap },
@@ -112,13 +112,13 @@ export default function DashboardPreview({ openPortal }) {
                   <button
                     key={m.id}
                     onClick={() => setActiveTab(m.id)}
-                    className={`flex items-center gap-3 px-4 py-3 text-xs font-mono tracking-wider uppercase text-left transition-all border-l-2 bg-transparent cursor-pointer ${
+                    className={`flex items-center gap-3.5 px-5 py-3.5 rounded-xl text-xs font-mono tracking-wider uppercase text-left transition-all border-l-2 bg-transparent cursor-pointer ${
                       isActive
                         ? 'border-white text-white bg-white/10 font-bold'
                         : 'border-transparent text-white/50 hover:text-white hover:bg-white/5'
                     }`}
                   >
-                    <IconComp className="w-4 h-4" />
+                    <IconComp className="w-4 h-4 shrink-0" />
                     <span>{m.label}</span>
                   </button>
                 );
@@ -126,9 +126,9 @@ export default function DashboardPreview({ openPortal }) {
             </div>
 
             {/* Main Mock Content Area */}
-            <div className="lg:col-span-9 p-8 md:p-10 flex flex-col justify-between bg-[#0e0e12]">
+            <div className="lg:col-span-9 p-8 md:p-12 lg:p-14 flex flex-col justify-between bg-[#0e0e12]">
               <div>
-                <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+                <div className="flex items-center justify-between pb-5 border-b border-white/10 mb-8">
                   <h3 className="font-sans text-xl font-bold uppercase tracking-wider text-white">
                     {portalData[activeTab].title}
                   </h3>
@@ -137,7 +137,7 @@ export default function DashboardPreview({ openPortal }) {
                   </span>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-6">
                   {portalData[activeTab].items.map((item, idx) => (
                     <div
                       key={idx}

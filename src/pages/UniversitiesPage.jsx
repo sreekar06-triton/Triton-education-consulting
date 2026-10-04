@@ -27,7 +27,7 @@ export default function UniversitiesPage({ onApplyUniversity }) {
 
   return (
     <div className="w-full bg-[#070709] text-white pt-32 pb-36 min-h-screen font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div className="site-container">
         
         {/* Header */}
         <div className="border-b border-white/10 pb-8 mb-12">
@@ -46,18 +46,18 @@ export default function UniversitiesPage({ onApplyUniversity }) {
         </div>
 
         {/* Filter Bar */}
-        <div className="bg-[#0e0e12] border border-white/15 p-6 mb-12 space-y-6">
+        <div className="bg-[#0e0e12] border border-white/15 p-8 md:p-10 rounded-2xl mb-14 space-y-8 shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             
             {/* Search Input */}
             <div className="md:col-span-5 relative">
-              <Search className="w-4 h-4 text-white/40 absolute left-3 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-white/40 absolute left-4 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search by university name, city, course..."
-                className="w-full bg-[#16161d] border border-white/20 pl-10 pr-4 py-2.5 text-sm text-white outline-none focus:border-white transition-colors"
+                className="w-full bg-[#16161d] border border-white/20 pl-11 pr-4 py-3 text-sm text-white rounded-xl outline-none focus:border-white transition-colors"
               />
             </div>
 
@@ -66,7 +66,7 @@ export default function UniversitiesPage({ onApplyUniversity }) {
               <select
                 value={selectedCountry}
                 onChange={(e) => setSelectedCountry(e.target.value)}
-                className="w-full bg-[#16161d] border border-white/20 px-4 py-2.5 text-sm text-white outline-none cursor-pointer"
+                className="w-full bg-[#16161d] border border-white/20 px-4 py-3 text-sm text-white rounded-xl outline-none cursor-pointer"
               >
                 {countries.map((c) => (
                   <option key={c} value={c} className="bg-[#070709]">Country: {c}</option>
@@ -79,7 +79,7 @@ export default function UniversitiesPage({ onApplyUniversity }) {
               <select
                 value={selectedIntake}
                 onChange={(e) => setSelectedIntake(e.target.value)}
-                className="w-full bg-[#16161d] border border-white/20 px-4 py-2.5 text-sm text-white outline-none cursor-pointer"
+                className="w-full bg-[#16161d] border border-white/20 px-4 py-3 text-sm text-white rounded-xl outline-none cursor-pointer"
               >
                 <option value="All" className="bg-[#070709]">Intake: All Months</option>
                 <option value="September" className="bg-[#070709]">September Intake</option>
@@ -90,7 +90,7 @@ export default function UniversitiesPage({ onApplyUniversity }) {
           </div>
 
           {/* Budget Slider */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-white/10 font-mono text-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-white/10 font-mono text-xs">
             <div className="flex items-center gap-3">
               <span className="text-white/40">MAX TUITION BUDGET:</span>
               <span className="text-white font-bold text-sm">${maxBudgetUSD.toLocaleString()} / YEAR</span>
@@ -109,13 +109,13 @@ export default function UniversitiesPage({ onApplyUniversity }) {
         </div>
 
         {/* Results Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {filtered.map((uni) => (
             <motion.div
               key={uni.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-[#0e0e12] border border-white/15 overflow-hidden flex flex-col justify-between group hover:border-white/40 transition-all duration-300 shadow-xl"
+              className="bg-[#0e0e12] border border-white/15 rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-white/40 transition-all duration-300 shadow-xl"
             >
               <div>
                 {/* Image */}
@@ -125,28 +125,28 @@ export default function UniversitiesPage({ onApplyUniversity }) {
                     alt={uni.name}
                     className="w-full h-full object-cover filter brightness-[0.8]"
                   />
-                  <div className="absolute top-4 left-4 bg-[#070709]/80 backdrop-blur-md px-3 py-1 font-mono text-xs text-white border border-white/20">
+                  <div className="absolute top-4 left-4 bg-[#070709]/80 backdrop-blur-md px-3 py-1 font-mono text-xs text-white border border-white/20 rounded-md">
                     {uni.flag} {uni.country}
                   </div>
-                  <div className="absolute bottom-4 right-4 bg-white text-black font-mono text-[0.65rem] font-bold px-2 py-0.5 uppercase tracking-wider">
+                  <div className="absolute bottom-4 right-4 bg-white text-black font-mono text-[0.65rem] font-bold px-2.5 py-1 uppercase tracking-wider rounded-sm">
                     {uni.ranking}
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6 space-y-4">
+                <div className="p-8 space-y-5">
                   <h3 className="font-sans text-xl font-bold uppercase tracking-wider text-white group-hover:text-white/90 transition-colors">
                     {uni.name}
                   </h3>
 
-                  <p className="font-mono text-xs text-white/50 flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5" />
+                  <p className="font-mono text-xs text-white/50 flex items-center gap-2">
+                    <MapPin className="w-3.5 h-3.5 text-white/70" />
                     <span>{uni.city}, {uni.country}</span>
                   </p>
 
                   <div className="divider-dark" />
 
-                  <div className="space-y-2 font-mono text-xs text-white/70">
+                  <div className="space-y-2.5 font-mono text-xs text-white/70">
                     <div className="flex items-center justify-between">
                       <span className="text-white/40">TUITION:</span>
                       <span className="text-white font-bold">{uni.tuition}</span>
@@ -158,11 +158,11 @@ export default function UniversitiesPage({ onApplyUniversity }) {
                   </div>
 
                   {/* Course Tags */}
-                  <div className="pt-2 flex flex-wrap gap-1.5">
+                  <div className="pt-2 flex flex-wrap gap-2">
                     {uni.courses.slice(0, 3).map((c) => (
                       <span
                         key={c}
-                        className="bg-white/5 border border-white/10 px-2 py-1 font-sans text-[0.7rem] text-white/80"
+                        className="bg-white/5 border border-white/10 px-3 py-1 rounded-md font-sans text-[0.72rem] text-white/80"
                       >
                         {c}
                       </span>
@@ -172,7 +172,7 @@ export default function UniversitiesPage({ onApplyUniversity }) {
               </div>
 
               {/* Card Footer Actions */}
-              <div className="p-6 pt-0 flex items-center justify-between gap-4">
+              <div className="p-8 pt-0 flex items-center justify-between gap-4">
                 <button
                   onClick={() => setSelectedUniModal(uni)}
                   className="font-mono text-xs text-white/60 hover:text-white underline bg-transparent border-none cursor-pointer"

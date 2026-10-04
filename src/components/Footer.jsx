@@ -4,7 +4,7 @@ import { ArrowUpRight, Globe, Mail, Phone, MapPin } from 'lucide-react';
 export default function Footer({ setActivePage }) {
   return (
     <footer className="bg-[#050507] text-white pt-24 pb-12 border-t border-white/10 font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div className="site-container">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
           
           {/* Brand & Mission Column */}

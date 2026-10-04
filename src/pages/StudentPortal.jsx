@@ -36,24 +36,24 @@ export default function StudentPortal({ user = { name: 'Aarav Sharma', email: 'a
   return (
     <div className="min-h-screen bg-[#070709] text-white pt-24 pb-24 font-sans">
       {/* Top Portal Banner */}
-      <div className="bg-[#0e0e12] border-b border-white/10 py-6 px-6 md:px-12">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <span className="label-mono text-white/40 block text-[0.65rem] mb-1">TRITON STUDENT APPLICANT PORTAL</span>
-            <h1 className="font-sans text-2xl font-bold uppercase tracking-wider text-white">
+      <div className="bg-[#0e0e12] border-b border-white/10 py-8">
+        <div className="site-container flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-1">
+            <span className="label-mono text-white/40 block text-[0.68rem] tracking-wider">TRITON STUDENT APPLICANT PORTAL</span>
+            <h1 className="font-sans text-3xl font-bold uppercase tracking-wider text-white">
               Welcome, {user.name}
             </h1>
-            <p className="font-mono text-xs text-white/50">STUDENT ID: TRT-2026-9041 • INTAKE: SEPTEMBER 2026</p>
+            <p className="font-mono text-xs text-white/50 tracking-wider">STUDENT ID: TRT-2026-9041 • INTAKE: SEPTEMBER 2026</p>
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="font-mono text-xs px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold">
+            <span className="font-mono text-xs px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold rounded-lg">
               OFFER LETTER ISSUED
             </span>
 
             <button
               onClick={onLogout}
-              className="font-mono text-xs text-white/60 hover:text-white flex items-center gap-1.5 px-3 py-1.5 border border-white/20 hover:border-white/50 bg-transparent cursor-pointer"
+              className="font-mono text-xs text-white/70 hover:text-white flex items-center gap-2 px-4 py-2 border border-white/20 hover:border-white/50 rounded-lg bg-transparent cursor-pointer transition-all"
             >
               <LogOut className="w-3.5 h-3.5" />
               <span>Sign Out</span>
@@ -62,12 +62,12 @@ export default function StudentPortal({ user = { name: 'Aarav Sharma', email: 'a
         </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="site-container pt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
-          {/* Sidebar Tabs */}
-          <div className="lg:col-span-3 space-y-2 bg-[#0e0e12] border border-white/15 p-4 self-start">
-            <span className="label-mono text-white/40 block mb-3 text-[0.65rem] px-3">PORTAL NAVIGATION</span>
+          {/* Sidebar Tabs - Roomy Navigation Panel */}
+          <div className="lg:col-span-3 space-y-3 bg-[#0e0e12] border border-white/15 p-6 rounded-2xl self-start">
+            <span className="label-mono text-white/40 block mb-4 text-[0.68rem] px-2 tracking-wider">PORTAL NAVIGATION</span>
 
             {[
               { id: 'overview', label: 'Overview', icon: LayoutDashboard },
@@ -84,14 +84,14 @@ export default function StudentPortal({ user = { name: 'Aarav Sharma', email: 'a
                 <button
                   key={nav.id}
                   onClick={() => setActiveTab(nav.id)}
-                  className={`w-full flex items-center justify-between px-4 py-3 text-xs font-mono tracking-wider uppercase transition-all bg-transparent cursor-pointer border-l-2 ${
+                  className={`w-full flex items-center justify-between px-5 py-3.5 rounded-xl text-xs font-mono tracking-wider uppercase transition-all bg-transparent cursor-pointer border-l-2 ${
                     isActive
-                      ? 'border-white text-white bg-white/10 font-bold'
+                      ? 'border-white text-white bg-white/10 font-bold shadow-sm'
                       : 'border-transparent text-white/50 hover:text-white hover:bg-white/5'
                   }`}
                 >
-                  <div className="flex items-center gap-3">
-                    <IconComponent className="w-4 h-4" />
+                  <div className="flex items-center gap-3.5">
+                    <IconComponent className="w-4 h-4 shrink-0" />
                     <span>{nav.label}</span>
                   </div>
                   <ChevronRight className="w-3.5 h-3.5 opacity-40" />
@@ -100,18 +100,18 @@ export default function StudentPortal({ user = { name: 'Aarav Sharma', email: 'a
             })}
           </div>
 
-          {/* Main Display Area */}
-          <div className="lg:col-span-9 bg-[#0e0e12] border border-white/15 p-6 md:p-10 min-h-[500px]">
+          {/* Main Display Area - Roomy Inner Padding */}
+          <div className="lg:col-span-9 bg-[#0e0e12] border border-white/15 p-8 md:p-12 lg:p-14 rounded-2xl min-h-[550px]">
             
             {/* OVERVIEW TAB */}
             {activeTab === 'overview' && (
-              <div className="space-y-8">
+              <div className="space-y-10">
                 <div>
-                  <span className="label-mono text-white/40 block mb-2">PROGRESS ROADMAP</span>
-                  <h2 className="font-sans text-2xl font-bold uppercase text-white mb-4">Journey Status: Stage 4 of 6</h2>
+                  <span className="label-mono text-white/40 block mb-3">PROGRESS ROADMAP</span>
+                  <h2 className="font-sans text-2xl font-bold uppercase text-white mb-6">Journey Status: Stage 4 of 6</h2>
 
                   {/* Progress Line */}
-                  <div className="grid grid-cols-2 sm:grid-cols-6 gap-2 text-center font-mono text-[0.65rem]">
+                  <div className="grid grid-cols-2 sm:grid-cols-6 gap-3 text-center font-mono text-[0.68rem]">
                     {[
                       { step: '01 COUNSEL', done: true },
                       { step: '02 UNIV SELECT', done: true },
@@ -122,7 +122,7 @@ export default function StudentPortal({ user = { name: 'Aarav Sharma', email: 'a
                     ].map((s, idx) => (
                       <div
                         key={idx}
-                        className={`p-3 border ${
+                        className={`p-4 rounded-xl border ${
                           s.done
                             ? 'bg-white text-black font-bold border-white'
                             : s.active
@@ -139,30 +139,30 @@ export default function StudentPortal({ user = { name: 'Aarav Sharma', email: 'a
                 <div className="divider-dark" />
 
                 {/* Next Action Items */}
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <h3 className="font-sans text-lg font-bold uppercase text-white">Pending Action Required</h3>
                   
-                  <div className="p-5 bg-[#14141c] border border-white/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <div>
+                  <div className="p-6 bg-[#14141c] border border-white/20 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                    <div className="space-y-1">
                       <h4 className="font-sans text-base font-bold text-white">Upload Apostilled High School Transcript</h4>
                       <p className="font-sans text-xs text-white/60">Required for Uzbekistan Ministry of Foreign Affairs Telex Telex Code</p>
                     </div>
                     <button
                       onClick={() => setActiveTab('documents')}
-                      className="btn-pill-white !py-2 !px-4 !text-[0.7rem]"
+                      className="btn-pill-white !py-2.5 !px-5 !text-[0.7rem]"
                     >
                       Go To Vault
                     </button>
                   </div>
 
-                  <div className="p-5 bg-[#14141c] border border-white/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <div>
+                  <div className="p-6 bg-[#14141c] border border-white/20 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                    <div className="space-y-1">
                       <h4 className="font-sans text-base font-bold text-white">Schedule Visa Interview Orientation</h4>
                       <p className="font-sans text-xs text-white/60">1-on-1 session with Dr. Marcus Vance</p>
                     </div>
                     <button
                       onClick={() => setActiveTab('support')}
-                      className="btn-pill-outline !py-2 !px-4 !text-[0.7rem]"
+                      className="btn-pill-outline !py-2.5 !px-5 !text-[0.7rem]"
                     >
                       Message Advisor
                     </button>

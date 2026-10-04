@@ -12,18 +12,8 @@ export default function UniversitySection({ onExplore }) {
   ];
 
   return (
-    <section className="relative w-full py-24 md:py-32 bg-[#070709] overflow-hidden border-t border-white/15">
-      {/* Background Image Container */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        <img
-          src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=2000&auto=format&fit=crop"
-          alt="Tashkent Campus"
-          className="w-full h-full object-cover filter brightness-[0.25] contrast-[1.2]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#070709] via-[#070709]/80 to-transparent" />
-      </div>
-
-      <div className="relative z-10 max-w-[1350px] w-full mx-auto px-6 md:px-12 flex flex-col justify-between">
+    <section className="relative w-full site-section-padding bg-[#070709] border-t border-white/15">
+      <div className="site-container relative z-10 flex flex-col justify-between">
         {/* Section Label */}
         <div className="flex items-center justify-between border-b border-white/15 pb-4 mb-12">
           <span className="label-mono text-white/60">
@@ -36,70 +26,78 @@ export default function UniversitySection({ onExplore }) {
         </div>
 
         {/* Headline & Location Feature */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
-          <div className="lg:col-span-7">
-            <h2 className="display-large text-white mb-4">
-              FIND WHERE <br />
-              <span className="editorial-serif italic font-normal text-white">
-                YOU BELONG.
-              </span>
-            </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch mb-20">
+          <div className="lg:col-span-7 flex flex-col justify-center space-y-8">
+            <div>
+              <span className="label-mono text-white/40 block mb-3">GLOBAL UNIVERSITY DESTINATIONS</span>
+              <h2 className="display-large text-white mb-4">
+                FIND WHERE <br />
+                <span className="editorial-serif italic font-normal text-white">
+                  YOU BELONG.
+                </span>
+              </h2>
+            </div>
 
-            <p className="font-sans text-white/80 text-base md:text-lg max-w-xl font-light leading-relaxed mb-6">
+            <p className="font-sans text-white/80 text-base md:text-lg max-w-prose-editorial font-light leading-relaxed">
               Compare accredited medical, technology, engineering, and business degree programs with transparent financial and ranking facts.
             </p>
 
-            <button
-              onClick={onExplore}
-              className="btn-pill-white"
-            >
-              <span>EXPLORE ALL UNIVERSITIES</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </button>
+            <div className="pt-2">
+              <button
+                onClick={onExplore}
+                className="btn-pill-white"
+              >
+                <span>EXPLORE ALL UNIVERSITIES</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
 
-          {/* Featured Spotlight Card with Key Facts */}
-          <div className="lg:col-span-5 bg-[#0e0e14]/90 border border-white/20 p-8 backdrop-blur-md space-y-6">
-            <div className="flex items-center justify-between border-b border-white/15 pb-4">
-              <div>
-                <span className="label-mono text-white/50 block text-[0.65rem]">FEATURED DESTINATION</span>
-                <h3 className="font-sans text-2xl font-bold uppercase tracking-wider text-white flex items-center gap-2">
-                  <span>UZBEKISTAN</span>
-                  <span>🇺🇿</span>
-                </h3>
-                <p className="font-mono text-xs text-white/60 uppercase">Tashkent International Tech & Medical</p>
+          {/* Featured Destination Component - Roomy, Breathable Layout */}
+          <div className="lg:col-span-5 bg-[#0e0e14] border border-white/20 p-8 md:p-10 lg:p-12 rounded-2xl shadow-2xl flex flex-col justify-between space-y-8">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="label-mono text-white/50 text-[0.68rem] tracking-wider">FEATURED DESTINATION</span>
+                <span className="font-mono text-xs px-3 py-1 bg-emerald-500/10 text-emerald-400 font-bold border border-emerald-500/30 rounded-md">
+                  HIGH ADMIT RATE
+                </span>
               </div>
-              <span className="font-mono text-xs px-2.5 py-1 bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">
-                HIGH ADMIT RATE
-              </span>
+
+              <div>
+                <h3 className="font-sans text-3xl font-bold uppercase tracking-wider text-white flex items-center gap-3">
+                  <span>UZBEKISTAN</span>
+                  <span className="text-3xl">🇺🇿</span>
+                </h3>
+                <p className="font-mono text-xs text-white/60 tracking-wider mt-1">Tashkent International Tech & Medical Hub</p>
+              </div>
             </div>
 
-            <div className="space-y-3 font-sans text-xs text-white/90 font-light">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-white/70 shrink-0" />
-                <span><strong>MD Medicine (MBBS):</strong> $3,600 / year • 6-Year English Track</span>
+            <div className="space-y-4 font-sans text-xs md:text-sm text-white/90 font-light border-t border-white/10 pt-6">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <p><strong className="text-white font-bold">MD Medicine (MBBS):</strong> $3,600 / year • 6-Year English Track</p>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-white/70 shrink-0" />
-                <span><strong>Software Engineering & AI:</strong> $2,800 / year • Tech Incubator</span>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <p><strong className="text-white font-bold">Software Engineering & AI:</strong> $2,800 / year • Tech Incubator</p>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-white/70 shrink-0" />
-                <span><strong>Living Cost:</strong> $250 - $350 / month (Fully Furnished Dorms)</span>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <p><strong className="text-white font-bold">Living Cost:</strong> $250 - $350 / month (Furnished Dorms)</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* KEY COMPARISON FACTS MATRIX */}
-        <div className="pt-8 border-t border-white/15">
-          <span className="label-mono text-white/50 block mb-4">VERIFIED ADMISSION & COST FACTS</span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="pt-12 border-t border-white/10 space-y-8">
+          <span className="label-mono text-white/50 block">VERIFIED ADMISSION & COST FACTS</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredFacts.map((f) => (
-              <div key={f.label} className="fact-card space-y-1">
-                <span className="label-mono text-white/50 text-[0.65rem] block">{f.label}</span>
-                <p className="font-mono text-xl font-bold text-white">{f.value}</p>
-                <p className="font-sans text-xs text-white/70 font-light">{f.note}</p>
+              <div key={f.label} className="fact-card">
+                <span className="label-mono text-white/50 text-[0.68rem] block">{f.label}</span>
+                <p className="font-mono text-xl md:text-2xl font-bold text-white tracking-tight">{f.value}</p>
+                <p className="font-sans text-xs text-white/70 font-light leading-relaxed">{f.note}</p>
               </div>
             ))}
           </div>

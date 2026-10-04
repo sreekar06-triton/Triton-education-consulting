@@ -10,14 +10,15 @@
   --bg-dark-alt: #0e0e12;
   --bg-light: #f6f6f2;
   --bg-light-pure: #ffffff;
-  
+
   --text-primary: #ffffff;
   --text-muted: #9e9ea8;
   --text-dark: #09090b;
   --text-dark-muted: #52525b;
 
-  --border-dark: rgba(255, 255, 255, 0.15);
-  --border-light: rgba(0, 0, 0, 0.15);
+  --border-dark: rgba(255, 255, 255, 0.12);
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-light: rgba(0, 0, 0, 0.12);
 
   --accent-white: #ffffff;
   --accent-gray: #24242a;
@@ -58,26 +59,40 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #070709;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #33333d;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #555566;
 }
 
 /* Typography Utilities - Balanced Font Hierarchy */
-.font-sans { font-family: var(--font-sans); }
-.font-serif { font-family: var(--font-serif); }
-.font-mono { font-family: var(--font-mono); }
-.font-body { font-family: var(--font-body); }
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
 
 .display-huge {
   font-family: var(--font-sans);
-  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -86,10 +101,17 @@ body {
 
 .display-large {
   font-family: var(--font-sans);
-  font-size: clamp(1.8rem, 3.5vw, 3.4rem);
+  font-size: clamp(2rem, 3.8vw, 3.5rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.12;
   letter-spacing: -0.02em;
+}
+
+.display-medium {
+  font-family: var(--font-sans);
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .editorial-serif {
@@ -107,6 +129,15 @@ body {
   color: var(--text-muted);
 }
 
+/* Paragraph Width Constraints */
+.max-w-prose-editorial {
+  max-width: 680px;
+}
+
+.max-w-prose-wide {
+  max-width: 800px;
+}
+
 /* Divider Lines */
 .divider-dark {
   height: 1px;
@@ -114,9 +145,9 @@ body {
   width: 100%;
 }
 
-.divider-light {
+.divider-subtle {
   height: 1px;
-  background: var(--border-light);
+  background: var(--border-subtle);
   width: 100%;
 }
 
@@ -133,7 +164,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 0.9rem 2rem;
+  padding: 0.95rem 2.2rem;
   border-radius: 9999px;
   border: 1px solid #ffffff;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -159,7 +190,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 0.9rem 2rem;
+  padding: 0.95rem 2.2rem;
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -185,7 +216,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 0.9rem 2rem;
+  padding: 0.95rem 2.2rem;
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -196,31 +227,6 @@ body {
 .btn-pill-outline:hover {
   border-color: #ffffff;
   background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-2px);
-}
-
-.btn-pill-light-dark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  background-color: #070709;
-  color: #ffffff;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.9rem 2rem;
-  border-radius: 9999px;
-  border: 1px solid #070709;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.btn-pill-light-dark:hover {
-  background-color: #272730;
   transform: translateY(-2px);
 }
 
@@ -235,7 +241,7 @@ body {
 }
 
 .img-zoom-wrapper:hover img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 /* Dark Section / Light Section Transitions */
@@ -249,18 +255,13 @@ body {
   color: var(--text-primary);
 }
 
-.bg-section-light {
-  background-color: var(--bg-light);
-  color: var(--text-dark);
-}
-
 /* Minimal Input Styling */
 .editorial-input {
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--border-dark);
   color: #ffffff;
-  padding: 0.8rem 0;
+  padding: 1rem 0.25rem;
   font-family: var(--font-sans);
   font-size: 1rem;
   width: 100%;
@@ -276,30 +277,131 @@ body {
 .hero-overlay {
   background: linear-gradient(
     180deg,
-    rgba(7, 7, 9, 0.65) 0%,
+    rgba(7, 7, 9, 0.60) 0%,
     rgba(7, 7, 9, 0.85) 60%,
     rgba(7, 7, 9, 0.98) 100%
   );
 }
 
-.photo-overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(7, 7, 9, 0.4) 0%,
-    rgba(7, 7, 9, 0.9) 100%
-  );
+/* ==================================================
+   1. GLOBAL CONTENT GRID & LAYOUT SYSTEM
+   ================================================== */
+
+.site-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;  /* 20px Mobile */
+  padding-right: 1.25rem;
 }
 
-/* Fact Data Card Styling */
+@media (min-width: 640px) {
+  .site-container {
+    padding-left: 2.25rem; /* 36px Tablet */
+    padding-right: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 3.5rem;  /* 56px Laptop */
+    padding-right: 3.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .site-container {
+    padding-left: 4.5rem;  /* 72px Desktop */
+    padding-right: 4.5rem;
+  }
+}
+
+/* ==================================================
+   2. VISUAL SECTION SPACING & VERTICAL RHYTHM
+   ================================================== */
+
+.site-section-padding {
+  padding-top: 5.5rem;
+  padding-bottom: 5.5rem;
+}
+
+@media (min-width: 768px) {
+  .site-section-padding {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-section-padding {
+    padding-top: 9.5rem;
+    padding-bottom: 9.5rem;
+  }
+}
+
+/* Section Header Rhythm Composition */
+.section-header-block {
+  margin-bottom: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-header-block {
+    margin-bottom: 4.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-header-block {
+    margin-bottom: 5.5rem;
+  }
+}
+
+/* ==================================================
+   3. REUSABLE CARD & PANEL LAYOUTS
+   ================================================== */
+
 .fact-card {
-  background-color: rgba(20, 20, 28, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(14, 14, 18, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(8px);
-  padding: 1.25rem 1.5rem;
-  transition: all 0.3s ease;
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .fact-card {
+    padding: 2.25rem;
+  }
 }
 
 .fact-card:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.card-panel {
+  background-color: #0e0e12;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .card-panel {
+    padding: 2.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-panel {
+    padding: 3.5rem;
+  }
 }

@@ -21,18 +21,8 @@ export default function FlightSection({ onOpenCleartripModal, onSearchFlights })
   };
 
   return (
-    <section className="relative w-full py-28 md:py-36 bg-[#070709] overflow-hidden border-t border-white/10">
-      {/* Background Airplane Travel Imagery */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        <img
-          src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2000&auto=format&fit=crop"
-          alt="International Airplane Flight"
-          className="w-full h-full object-cover filter brightness-[0.3] contrast-[1.2]"
-        />
-        <div className="absolute inset-0 hero-overlay" />
-      </div>
-
-      <div className="relative z-10 max-w-[1400px] w-full mx-auto px-6 md:px-12 flex flex-col justify-between">
+    <section className="relative w-full site-section-padding bg-[#070709] border-t border-white/10">
+      <div className="site-container relative z-10 flex flex-col justify-between">
         
         {/* Top Header */}
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 pb-8 border-b border-white/10 mb-12">
@@ -65,13 +55,13 @@ export default function FlightSection({ onOpenCleartripModal, onSearchFlights })
           </div>
         </div>
 
-        {/* Minimal Flight Search Interface */}
-        <form onSubmit={handleSearch} className="bg-[#070709]/90 border border-white/20 backdrop-blur-md p-6 md:p-10 mb-12 shadow-2xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 items-end">
+        {/* Flight Search Interface - Roomy Padding & Offsets */}
+        <form onSubmit={handleSearch} className="bg-[#0e0e12] border border-white/20 backdrop-blur-md p-8 md:p-12 lg:p-14 rounded-2xl mb-14 shadow-2xl space-y-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 items-end">
             
             {/* FROM */}
             <div>
-              <label className="label-mono text-white/50 block mb-2">FROM</label>
+              <label className="label-mono text-white/50 block mb-3">FROM</label>
               <input
                 type="text"
                 value={fromCity}
@@ -83,7 +73,7 @@ export default function FlightSection({ onOpenCleartripModal, onSearchFlights })
 
             {/* TO */}
             <div>
-              <label className="label-mono text-white/50 block mb-2">TO DESTINATION</label>
+              <label className="label-mono text-white/50 block mb-3">TO DESTINATION</label>
               <input
                 type="text"
                 value={toCity}
@@ -95,7 +85,7 @@ export default function FlightSection({ onOpenCleartripModal, onSearchFlights })
 
             {/* DEPARTURE */}
             <div>
-              <label className="label-mono text-white/50 block mb-2">DEPARTURE</label>
+              <label className="label-mono text-white/50 block mb-3">DEPARTURE</label>
               <input
                 type="date"
                 value={departureDate}
@@ -106,11 +96,11 @@ export default function FlightSection({ onOpenCleartripModal, onSearchFlights })
 
             {/* TRAVELLERS */}
             <div>
-              <label className="label-mono text-white/50 block mb-2">TRAVELLERS</label>
+              <label className="label-mono text-white/50 block mb-3">TRAVELLERS</label>
               <select
                 value={passengers}
                 onChange={(e) => setPassengers(e.target.value)}
-                className="bg-transparent border-b border-white/20 text-white font-sans text-base py-2 w-full outline-none cursor-pointer"
+                className="bg-transparent border-b border-white/20 text-white font-sans text-base py-3 w-full outline-none cursor-pointer"
               >
                 <option value="1 Student" className="bg-[#070709]">1 Student (Discount Fare)</option>
                 <option value="1 Student + 1 Parent" className="bg-[#070709]">1 Student + 1 Parent</option>
@@ -122,7 +112,7 @@ export default function FlightSection({ onOpenCleartripModal, onSearchFlights })
             <div>
               <button
                 type="submit"
-                className="btn-pill-white w-full text-center justify-center !py-3"
+                className="btn-pill-white w-full text-center justify-center !py-4"
               >
                 <span>SEARCH FLIGHTS</span>
                 <ArrowRight className="w-4 h-4" />
@@ -137,9 +127,9 @@ export default function FlightSection({ onOpenCleartripModal, onSearchFlights })
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="space-y-4"
+            className="space-y-6"
           >
-            <div className="flex items-center justify-between pb-2 border-b border-white/10">
+            <div className="flex items-center justify-between pb-3 border-b border-white/10">
               <span className="label-mono text-white/60">
                 AVAILABLE STUDENT FLIGHTS ({searchResults.length})
               </span>
@@ -148,11 +138,11 @@ export default function FlightSection({ onOpenCleartripModal, onSearchFlights })
               </span>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
               {searchResults.map((fl) => (
                 <div
                   key={fl.id}
-                  className="bg-[#0e0e12]/90 border border-white/15 p-6 flex flex-col justify-between space-y-4 hover:border-white/40 transition-colors"
+                  className="bg-[#0e0e12]/90 border border-white/15 p-8 rounded-2xl flex flex-col justify-between space-y-6 hover:border-white/40 transition-colors shadow-xl"
                 >
                   <div className="flex items-center justify-between">
                     <div>
@@ -165,7 +155,7 @@ export default function FlightSection({ onOpenCleartripModal, onSearchFlights })
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between font-mono text-xs text-white/80 border-y border-white/10 py-3">
+                  <div className="flex items-center justify-between font-mono text-xs text-white/80 border-y border-white/10 py-4">
                     <div>
                       <p className="font-bold text-white">{fl.fromCity}</p>
                       <p className="text-white/40">{fl.departure}</p>

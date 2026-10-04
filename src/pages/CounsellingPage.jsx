@@ -24,7 +24,7 @@ export default function CounsellingPage() {
 
   return (
     <div className="w-full bg-[#070709] text-white pt-32 pb-36 min-h-screen font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div className="site-container">
         
         {/* Header */}
         <div className="border-b border-white/10 pb-8 mb-16">
@@ -43,7 +43,7 @@ export default function CounsellingPage() {
         </div>
 
         {/* Counsellor Profiles & Booking Form Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
           {/* Counsellor Roster */}
           <div className="lg:col-span-6 space-y-8">
@@ -58,19 +58,19 @@ export default function CounsellingPage() {
                   <div
                     key={c.id}
                     onClick={() => setSelectedCounsellor(c)}
-                    className={`p-6 border transition-all cursor-pointer flex flex-col sm:flex-row gap-6 items-start sm:items-center ${
+                    className={`p-8 rounded-2xl border transition-all cursor-pointer flex flex-col sm:flex-row gap-6 items-start sm:items-center ${
                       isSelected
-                        ? 'bg-[#121218] border-white'
+                        ? 'bg-[#121218] border-white shadow-xl'
                         : 'bg-[#0e0e12] border-white/15 hover:border-white/40'
                     }`}
                   >
                     <img
                       src={c.image}
                       alt={c.name}
-                      className="w-20 h-20 object-cover border border-white/20"
+                      className="w-20 h-20 object-cover border border-white/20 rounded-xl"
                     />
 
-                    <div className="space-y-1 flex-1">
+                    <div className="space-y-2 flex-1">
                       <div className="flex items-center justify-between">
                         <h3 className="font-sans text-lg font-bold text-white uppercase">{c.name}</h3>
                         <span className="font-mono text-xs text-white/50">{c.experience}</span>
@@ -83,19 +83,19 @@ export default function CounsellingPage() {
               })}
             </div>
 
-            <div className="p-6 bg-[#0e0e12] border border-white/10 space-y-3 font-sans text-xs text-white/70">
-              <h4 className="font-bold uppercase text-white tracking-wider">Why Book With Triton?</h4>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-white/60" />
+            <div className="p-8 bg-[#0e0e12] border border-white/15 rounded-2xl space-y-4 font-sans text-xs text-white/70">
+              <h4 className="font-bold uppercase text-white tracking-wider text-sm">Why Book With Triton?</h4>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>Zero consultation or hidden assessment fees</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-white/60" />
+                <li className="flex items-center gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>Direct university portal access for immediate offer issuance</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-white/60" />
+                <li className="flex items-center gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>Embassy verified visa documentation guidance</span>
                 </li>
               </ul>
@@ -103,11 +103,11 @@ export default function CounsellingPage() {
           </div>
 
           {/* Booking Form Column */}
-          <div className="lg:col-span-6 bg-[#0e0e12] border border-white/20 p-8 md:p-12 shadow-2xl">
-            <h2 className="font-sans text-2xl font-bold uppercase tracking-wider text-white mb-2">
+          <div className="lg:col-span-6 bg-[#0e0e12] border border-white/20 p-8 md:p-14 lg:p-16 rounded-2xl shadow-2xl space-y-6">
+            <h2 className="font-sans text-2xl font-bold uppercase tracking-wider text-white">
               Reserve Advisory Session
             </h2>
-            <p className="font-sans text-xs text-white/60 font-light mb-8">
+            <p className="font-sans text-xs text-white/60 font-light">
               Selected Advisor: <strong className="text-white">{selectedCounsellor.name}</strong> ({selectedCounsellor.specialization})
             </p>
 

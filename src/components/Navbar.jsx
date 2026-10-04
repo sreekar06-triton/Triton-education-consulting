@@ -41,7 +41,7 @@ export default function Navbar({ activePage, setActivePage, openAuthModal, openS
           : 'bg-transparent py-6'
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div className="site-container flex items-center justify-between">
         {/* Brand Logo */}
         <button
           onClick={() => handleNavClick('home')}
@@ -56,12 +56,12 @@ export default function Navbar({ activePage, setActivePage, openAuthModal, openS
         </button>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
           {navItems.map((item) => (
             <button
               key={item.page}
               onClick={() => handleNavClick(item.page)}
-              className={`font-mono text-xs uppercase tracking-[0.15em] bg-transparent border-none cursor-pointer transition-all duration-300 relative py-1 ${
+              className={`font-mono text-[0.7rem] xl:text-xs uppercase tracking-[0.15em] bg-transparent border-none cursor-pointer transition-all duration-300 relative py-1 ${
                 activePage === item.page
                   ? 'text-white font-semibold'
                   : 'text-white/60 hover:text-white'
@@ -69,17 +69,17 @@ export default function Navbar({ activePage, setActivePage, openAuthModal, openS
             >
               {item.label}
               {activePage === item.page && (
-                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white transition-all"></span>
+                <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-white transition-all"></span>
               )}
             </button>
           ))}
         </nav>
 
         {/* Action Buttons */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3.5 xl:gap-5">
           <button
             onClick={() => openStudentPortal()}
-            className="font-mono text-xs uppercase tracking-[0.15em] text-white/80 hover:text-white flex items-center gap-1.5 px-3 py-1.5 rounded border border-white/20 hover:border-white/50 transition-all bg-transparent cursor-pointer"
+            className="font-mono text-[0.7rem] xl:text-xs uppercase tracking-[0.15em] text-white/80 hover:text-white flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/20 hover:border-white/50 transition-all bg-transparent cursor-pointer"
           >
             <UserCheck className="w-3.5 h-3.5" />
             <span>Portal</span>
@@ -87,14 +87,14 @@ export default function Navbar({ activePage, setActivePage, openAuthModal, openS
 
           <button
             onClick={() => openAuthModal('login')}
-            className="font-mono text-xs uppercase tracking-[0.15em] text-white/70 hover:text-white transition-colors bg-transparent border-none cursor-pointer px-2 py-1"
+            className="font-mono text-[0.7rem] xl:text-xs uppercase tracking-[0.15em] text-white/70 hover:text-white transition-colors bg-transparent border-none cursor-pointer px-2 py-1"
           >
             Sign In
           </button>
 
           <button
             onClick={() => handleNavClick('counselling')}
-            className="btn-pill-white !py-2.5 !px-5 !text-[0.72rem]"
+            className="btn-pill-white !py-2.5 !px-5 !text-[0.7rem] xl:!text-[0.75rem]"
           >
             <span>Get Started</span>
             <ArrowUpRight className="w-3.5 h-3.5" />

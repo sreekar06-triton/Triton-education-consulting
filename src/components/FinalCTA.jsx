@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 export default function FinalCTA({ onStartJourney, onTalkCounsellor }) {
   return (
-    <section className="relative w-full min-h-[85vh] flex flex-col justify-between bg-[#070709] overflow-hidden border-t border-white/10">
+    <section className="relative w-full site-section-padding bg-[#070709] border-t border-white/10">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full z-0">
         <img
@@ -15,7 +15,7 @@ export default function FinalCTA({ onStartJourney, onTalkCounsellor }) {
         <div className="absolute inset-0 hero-overlay" />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] w-full mx-auto px-6 md:px-12 py-24 md:py-36 flex-1 flex flex-col justify-between">
+      <div className="relative z-10 site-container w-full flex-1 flex flex-col justify-between">
         <div className="flex items-center justify-between border-b border-white/10 pb-6">
           <span className="label-mono text-white/50">
             [11] BEGIN YOUR ADMISSION

@@ -37,8 +37,8 @@ export default function AdmissionSection({ onStartApplication }) {
   ];
 
   return (
-    <section className="bg-section-light text-[#070709] py-28 md:py-36 relative border-t border-black/10">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+    <section className="bg-section-light text-[#070709] site-section-padding relative border-t border-black/10">
+      <div className="site-container">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mb-16 pb-8 border-b border-black/15">
           <div>
@@ -68,7 +68,7 @@ export default function AdmissionSection({ onStartApplication }) {
         </div>
 
         {/* 5-Stage Editorial Horizontal / Vertical Process */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 relative">
           {stages.map((stg, idx) => (
             <motion.div
               key={stg.num}
@@ -76,20 +76,20 @@ export default function AdmissionSection({ onStartApplication }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="flex flex-col justify-between pt-6 border-t border-black/20 relative group"
+              className="bg-white/80 border border-black/10 p-6 md:p-8 rounded-2xl flex flex-col justify-between relative group hover:border-black/30 transition-all duration-300 shadow-md"
             >
               <div>
                 {/* Large Stage Number */}
-                <span className="font-mono text-4xl md:text-5xl font-light text-[#070709]/30 block mb-4 group-hover:text-[#070709] transition-colors">
+                <span className="font-mono text-3xl md:text-4xl font-bold text-[#070709]/30 block mb-4 group-hover:text-[#070709] transition-colors">
                   {stg.num}
                 </span>
 
                 {/* Stage Title */}
-                <h3 className="font-sans text-xl font-bold tracking-wider uppercase text-[#070709] mb-1">
+                <h3 className="font-sans text-lg font-bold tracking-wider uppercase text-[#070709] mb-1">
                   {stg.title}
                 </h3>
                 
-                <p className="font-mono text-xs text-[#070709]/60 uppercase tracking-widest mb-3">
+                <p className="font-mono text-[0.68rem] text-[#070709]/60 uppercase tracking-wider mb-4">
                   {stg.subtitle}
                 </p>
 
@@ -102,7 +102,7 @@ export default function AdmissionSection({ onStartApplication }) {
               </div>
 
               {/* Progress Line Dot */}
-              <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between text-[0.7rem] font-mono text-[#070709]/50">
+              <div className="mt-6 pt-4 border-t border-black/10 flex items-center justify-between text-[0.68rem] font-mono text-[#070709]/50">
                 <span>STAGE {idx + 1} OF 5</span>
                 <span>→</span>
               </div>

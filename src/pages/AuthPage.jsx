@@ -20,31 +20,31 @@ export default function AuthPage({ initialMode = 'login', onClose, onLoginSucces
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
-      <div className="bg-[#070709] border border-white/20 w-full max-w-md p-8 md:p-10 shadow-2xl relative text-white font-sans">
+    <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-6 sm:p-10">
+      <div className="bg-[#0e0e12] border border-white/20 rounded-2xl w-full max-w-xl p-8 sm:p-14 md:p-16 shadow-2xl relative text-white font-sans space-y-10">
         
         {onClose && (
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 text-white/50 hover:text-white bg-transparent border-none cursor-pointer"
+            className="absolute top-8 right-8 text-white/50 hover:text-white bg-transparent border-none cursor-pointer p-2 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         )}
 
-        <div className="text-center mb-8">
-          <span className="font-mono text-xl font-bold tracking-[0.2em] uppercase text-white block mb-2">
+        <div className="text-center space-y-2">
+          <span className="font-mono text-2xl font-bold tracking-[0.2em] uppercase text-white block">
             TRITON<span className="text-white/40">.</span>
           </span>
-          <p className="label-mono text-white/50">
+          <p className="label-mono text-white/50 tracking-wider text-xs">
             {mode === 'login' ? 'STUDENT PORTAL LOGIN' : 'CREATE STUDENT ACCOUNT'}
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-8">
           {mode === 'register' && (
             <div>
-              <label className="label-mono text-white/50 block mb-2">FULL NAME</label>
+              <label className="label-mono text-white/50 block mb-3">FULL NAME</label>
               <input
                 type="text"
                 required
@@ -57,7 +57,7 @@ export default function AuthPage({ initialMode = 'login', onClose, onLoginSucces
           )}
 
           <div>
-            <label className="label-mono text-white/50 block mb-2">EMAIL ADDRESS</label>
+            <label className="label-mono text-white/50 block mb-3">EMAIL ADDRESS</label>
             <input
               type="email"
               required
@@ -69,7 +69,7 @@ export default function AuthPage({ initialMode = 'login', onClose, onLoginSucces
           </div>
 
           <div>
-            <label className="label-mono text-white/50 block mb-2">PASSWORD</label>
+            <label className="label-mono text-white/50 block mb-3">PASSWORD</label>
             <input
               type="password"
               required
@@ -81,11 +81,11 @@ export default function AuthPage({ initialMode = 'login', onClose, onLoginSucces
           </div>
 
           <div>
-            <label className="label-mono text-white/50 block mb-2">ACCOUNT TYPE</label>
+            <label className="label-mono text-white/50 block mb-3">ACCOUNT TYPE</label>
             <select
               value={role}
               onChange={(e) => setRole(e.target.value)}
-              className="bg-transparent border-b border-white/20 text-white font-sans text-sm py-2 w-full outline-none cursor-pointer"
+              className="bg-transparent border-b border-white/20 text-white font-sans text-base py-3 w-full outline-none cursor-pointer"
             >
               <option value="Student" className="bg-[#070709]">Prospective Student</option>
               <option value="Parent" className="bg-[#070709]">Parent / Sponsor</option>
@@ -93,22 +93,24 @@ export default function AuthPage({ initialMode = 'login', onClose, onLoginSucces
             </select>
           </div>
 
-          <button
-            type="submit"
-            className="btn-pill-white w-full text-center justify-center !py-3.5"
-          >
-            <span>{mode === 'login' ? 'SIGN IN TO PORTAL' : 'CREATE ACCOUNT'}</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
+          <div className="pt-2">
+            <button
+              type="submit"
+              className="btn-pill-white w-full text-center justify-center !py-4"
+            >
+              <span>{mode === 'login' ? 'SIGN IN TO PORTAL' : 'CREATE ACCOUNT'}</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
         </form>
 
-        <div className="mt-8 pt-6 border-t border-white/10 text-center font-mono text-xs text-white/60">
+        <div className="pt-8 border-t border-white/10 text-center font-mono text-xs text-white/60">
           {mode === 'login' ? (
             <p>
               Don't have a portal account?{' '}
               <button
                 onClick={() => setMode('register')}
-                className="text-white underline font-bold bg-transparent border-none cursor-pointer"
+                className="text-white underline font-bold bg-transparent border-none cursor-pointer ml-1"
               >
                 Register Here
               </button>
@@ -118,7 +120,7 @@ export default function AuthPage({ initialMode = 'login', onClose, onLoginSucces
               Already registered?{' '}
               <button
                 onClick={() => setMode('login')}
-                className="text-white underline font-bold bg-transparent border-none cursor-pointer"
+                className="text-white underline font-bold bg-transparent border-none cursor-pointer ml-1"
               >
                 Sign In
               </button>

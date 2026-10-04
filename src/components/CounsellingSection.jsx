@@ -13,13 +13,13 @@ export default function CounsellingSection({ onBookCounselling }) {
   ];
 
   return (
-    <section className="bg-section-dark py-28 md:py-36 border-t border-white/10 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    <section className="bg-section-dark site-section-padding border-t border-white/10 relative overflow-hidden">
+      <div className="site-container">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Large Image with Subtle Hover/Scroll parallax */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative aspect-[4/5] overflow-hidden border border-white/10 img-zoom-wrapper">
+          {/* Left Column: Large Image with Integrated Metric Badge */}
+          <div className="lg:col-span-6 space-y-4">
+            <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] overflow-hidden border border-white/10 img-zoom-wrapper">
               <img
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200&auto=format&fit=crop"
                 alt="1-on-1 Student Counselling"
@@ -28,20 +28,22 @@ export default function CounsellingSection({ onBookCounselling }) {
               <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-transparent to-transparent opacity-60" />
             </div>
 
-            {/* Float Metric Tag */}
-            <div className="absolute bottom-8 left-8 bg-[#070709]/90 border border-white/15 backdrop-blur-md p-6 max-w-xs">
-              <span className="label-mono text-white/50 block mb-1">PROVEN SUCCESS</span>
-              <p className="font-sans text-3xl font-bold text-white mb-1">99.4%</p>
-              <p className="font-sans text-xs text-white/70 font-light">
-                Direct university admission placement rate across 1,200+ students.
-              </p>
+            {/* Integrated Metric Card */}
+            <div className="bg-[#0e0e12] border border-white/15 p-5 flex items-center justify-between gap-4">
+              <div>
+                <span className="label-mono text-white/50 block text-[0.65rem] mb-1">PROVEN SUCCESS</span>
+                <p className="font-sans text-xs text-white/70 font-light">
+                  Direct university placement rate across 1,200+ students.
+                </p>
+              </div>
+              <p className="font-mono text-2xl md:text-3xl font-bold text-white shrink-0">99.4%</p>
             </div>
           </div>
 
-          {/* Right Column: Large Typography & Thin Separator List */}
-          <div className="lg:col-span-6 flex flex-col justify-between">
+          {/* Right Column: Large Typography & Intentional Numbered Service Blocks */}
+          <div className="lg:col-span-6 flex flex-col justify-between space-y-8">
             <div>
-              <span className="label-mono text-white/40 block mb-4">
+              <span className="label-mono text-white/40 block mb-3">
                 [04] ADVISORY SERVICES
               </span>
 
@@ -52,33 +54,36 @@ export default function CounsellingSection({ onBookCounselling }) {
                 </span>
               </h2>
 
-              <p className="font-sans text-white/70 text-base md:text-lg font-light leading-relaxed mb-10">
+              <p className="font-sans text-white/70 text-base md:text-lg font-light leading-relaxed max-w-prose-editorial mb-10">
                 Navigating international admissions shouldn't be confusing. Our senior advisors provide transparent, unbiased guidance tailored to your academic background.
               </p>
 
-              {/* List with thin divider lines */}
-              <div className="divide-y divide-white/10 border-y border-white/10 mb-10">
+              {/* Numbered Service Cards Grid with Intentional Spacing */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10">
                 {counsellingServices.map((item, idx) => (
                   <div
                     key={item.title}
-                    className="py-4 flex items-center justify-between group hover:pl-2 transition-all duration-300"
+                    className="p-6 rounded-2xl bg-[#0e0e12] border border-white/15 space-y-3 hover:border-white/40 transition-all duration-300"
                   >
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-xs text-white/40 font-bold">0{idx + 1}</span>
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                    </div>
                     <div>
-                      <h3 className="font-sans text-lg font-medium text-white group-hover:text-white/90">
+                      <h3 className="font-sans text-base font-bold text-white uppercase tracking-wider mb-1">
                         {item.title}
                       </h3>
-                      <p className="font-sans text-xs text-white/50 font-light mt-0.5">
+                      <p className="font-sans text-xs text-white/60 font-light leading-relaxed">
                         {item.detail}
                       </p>
                     </div>
-                    <CheckCircle2 className="w-4 h-4 text-white/30 group-hover:text-white transition-colors" />
                   </div>
                 ))}
               </div>
             </div>
 
             {/* CTA */}
-            <div>
+            <div className="pt-2">
               <button
                 onClick={onBookCounselling}
                 className="btn-pill-white"

@@ -12,7 +12,7 @@ export default function VisaSection({ onExploreVisa }) {
   ];
 
   return (
-    <section className="relative w-full min-h-[85vh] flex flex-col justify-between bg-[#070709] overflow-hidden border-t border-white/10">
+    <section className="relative w-full site-section-padding bg-[#070709] border-t border-white/10">
       {/* Background Cinematic Photo */}
       <div className="absolute inset-0 w-full h-full z-0">
         <img
@@ -23,7 +23,7 @@ export default function VisaSection({ onExploreVisa }) {
         <div className="absolute inset-0 photo-overlay" />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] w-full mx-auto px-6 md:px-12 py-24 md:py-36 flex flex-col justify-between min-h-[80vh]">
+      <div className="relative z-10 site-container w-full flex flex-col justify-between">
         {/* Top Header Label */}
         <div className="flex items-center justify-between border-b border-white/10 pb-6">
           <span className="label-mono text-white/50">
@@ -35,14 +35,14 @@ export default function VisaSection({ onExploreVisa }) {
         </div>
 
         {/* Content Layout */}
-        <div className="my-auto py-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          <div className="lg:col-span-6">
+        <div className="my-auto py-14 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="lg:col-span-6 space-y-8">
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="display-large text-white mb-6"
+              className="display-large text-white"
             >
               NEXT STOP: <br />
               <span className="editorial-serif italic font-normal text-white">
@@ -50,17 +50,19 @@ export default function VisaSection({ onExploreVisa }) {
               </span>
             </motion.h2>
 
-            <p className="font-sans text-white/70 text-base md:text-lg font-light leading-relaxed mb-8">
+            <p className="font-sans text-white/70 text-base md:text-lg font-light leading-relaxed max-w-prose-editorial">
               Securing your student visa shouldn't be stressful. Our certified immigration experts manage every aspect from financial proof validation to embassy interview preparation.
             </p>
 
-            <button
-              onClick={onExploreVisa}
-              className="btn-pill-white"
-            >
-              <span>EXPLORE VISA ASSISTANCE</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </button>
+            <div className="pt-2">
+              <button
+                onClick={onExploreVisa}
+                className="btn-pill-white"
+              >
+                <span>EXPLORE VISA ASSISTANCE</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
 
           {/* Minimal 2x2 Feature Grid */}
@@ -70,14 +72,14 @@ export default function VisaSection({ onExploreVisa }) {
               return (
                 <div
                   key={feat.title}
-                  className="p-6 border border-white/15 bg-[#070709]/70 backdrop-blur-sm space-y-3"
+                  className="p-8 rounded-2xl border border-white/15 bg-[#0e0e12]/90 backdrop-blur-md space-y-4 shadow-xl hover:border-white/40 transition-all duration-300"
                 >
-                  <IconComponent className="w-5 h-5 text-white/80" />
+                  <IconComponent className="w-5 h-5 text-emerald-400" />
                   <h3 className="font-sans text-base font-bold text-white uppercase tracking-wider">
                     {feat.title}
                   </h3>
                   <div className="divider-dark" />
-                  <p className="font-sans text-xs text-white/60 font-light leading-relaxed">
+                  <p className="font-sans text-xs md:text-sm text-white/70 font-light leading-relaxed">
                     {feat.desc}
                   </p>
                 </div>

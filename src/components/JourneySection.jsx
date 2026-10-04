@@ -63,10 +63,10 @@ export default function JourneySection({ onStepSelect }) {
   ];
 
   return (
-    <section className="bg-section-dark py-28 md:py-36 relative border-t border-white/10">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+    <section className="bg-section-dark site-section-padding relative border-t border-white/10">
+      <div className="site-container">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="label-mono text-white/40 block mb-4">
             [02] END-TO-END EXPERIENCE
           </span>
@@ -76,19 +76,16 @@ export default function JourneySection({ onStepSelect }) {
               Every Step Covered.
             </span>
           </h2>
-          <p className="font-sans text-white/60 text-base md:text-lg font-light leading-relaxed">
+          <p className="font-sans text-white/70 text-base md:text-lg font-light leading-relaxed max-w-prose-editorial mx-auto">
             From your very first counselling session to stepping off the aircraft, we handle every detail of your international transition.
           </p>
         </div>
 
-        {/* Divider Line */}
-        <div className="divider-dark mb-12" />
-
         {/* Split Editorial Rows Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Editorial Steps List */}
-          <div className="lg:col-span-7 flex flex-col divide-y divide-white/10">
+          <div className="lg:col-span-7 flex flex-col space-y-4">
             {steps.map((step, idx) => {
               const isActive = activeStep === idx;
               const IconComp = step.icon;
@@ -100,27 +97,31 @@ export default function JourneySection({ onStepSelect }) {
                     setActiveStep(idx);
                     if (onStepSelect) onStepSelect(step.actionPage);
                   }}
-                  className={`py-8 cursor-pointer transition-all duration-300 group ${
-                    isActive ? 'opacity-100 pl-2' : 'opacity-40 hover:opacity-80'
+                  className={`p-6 md:p-8 rounded-2xl cursor-pointer transition-all duration-300 border ${
+                    isActive
+                      ? 'bg-[#0e0e12] border-white/20 shadow-2xl opacity-100 scale-[1.01]'
+                      : 'bg-transparent border-white/5 opacity-50 hover:opacity-85 hover:border-white/10'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-6">
-                    <div className="flex items-start gap-6 md:gap-8">
+                    <div className="flex items-start gap-6 md:gap-10">
                       {/* Large Number */}
-                      <span className="font-mono text-2xl md:text-3xl font-light text-white/60 group-hover:text-white transition-colors">
+                      <span className={`font-mono text-3xl md:text-4xl font-light tracking-tight shrink-0 ${
+                        isActive ? 'text-white font-bold' : 'text-white/40'
+                      }`}>
                         {step.num}
                       </span>
 
-                      <div>
+                      <div className="space-y-2">
                         {/* Step Title */}
-                        <div className="flex items-center gap-3 mb-2">
-                          <IconComp className="w-5 h-5 text-white/70" />
+                        <div className="flex items-center gap-3">
+                          <IconComp className="w-5 h-5 text-white/80" />
                           <h3 className="font-sans text-xl md:text-2xl font-bold tracking-wider uppercase text-white">
                             {step.title}
                           </h3>
                         </div>
                         {/* Subtitle */}
-                        <p className="font-sans text-sm text-white/80 font-medium mb-2">
+                        <p className="font-sans text-sm md:text-base text-white/80 font-medium">
                           {step.subtitle}
                         </p>
                         {/* Active Expandable Description */}
@@ -129,7 +130,7 @@ export default function JourneySection({ onStepSelect }) {
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             transition={{ duration: 0.3 }}
-                            className="font-sans text-xs md:text-sm text-white/60 font-light leading-relaxed mt-2 max-w-lg"
+                            className="font-sans text-xs md:text-sm text-white/70 font-light leading-relaxed pt-2 max-w-lg"
                           >
                             {step.description}
                           </motion.p>

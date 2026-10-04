@@ -10,7 +10,7 @@ export default function VisaPage({ onBookConsultation }) {
 
   return (
     <div className="w-full bg-[#070709] text-white pt-32 pb-36 min-h-screen font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div className="site-container">
         
         {/* Header */}
         <div className="border-b border-white/10 pb-8 mb-16">
@@ -28,16 +28,16 @@ export default function VisaPage({ onBookConsultation }) {
           </p>
         </div>
 
-        {/* Country Selector Tabs */}
-        <div className="flex flex-wrap items-center gap-4 mb-12 border-b border-white/10 pb-6 font-mono text-xs">
+        {/* Country Selector Tabs - Elevated Wrapper with Proper Spacing */}
+        <div className="flex flex-wrap items-center gap-3 mb-14 p-3 bg-[#0e0e12] border border-white/15 rounded-xl font-mono text-xs">
           {VISA_COUNTRIES.map((v, idx) => (
             <button
               key={v.country}
               onClick={() => setSelectedCountryIndex(idx)}
-              className={`px-5 py-2.5 border transition-all cursor-pointer uppercase tracking-wider ${
+              className={`px-6 py-3 border rounded-lg transition-all cursor-pointer uppercase tracking-wider ${
                 selectedCountryIndex === idx
-                  ? 'bg-white text-black font-bold border-white'
-                  : 'bg-transparent text-white/60 border-white/20 hover:text-white hover:border-white/50'
+                  ? 'bg-white text-black font-bold border-white shadow-lg'
+                  : 'bg-transparent text-white/60 border-white/15 hover:text-white hover:border-white/40 hover:bg-white/5'
               }`}
             >
               {v.flag} {v.country}
@@ -45,47 +45,47 @@ export default function VisaPage({ onBookConsultation }) {
           ))}
         </div>
 
-        {/* Main Country Visa Specs Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-[#0e0e12] border border-white/20 p-8 md:p-12 shadow-2xl">
+        {/* Main Country Visa Specs Card - Generous Padding & Offsets */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 bg-[#0e0e12] border border-white/20 p-8 md:p-14 lg:p-16 rounded-2xl shadow-2xl">
           
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 space-y-10">
             <div>
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-3xl">{country.flag}</span>
+              <div className="flex items-center gap-4 mb-3">
+                <span className="text-4xl">{country.flag}</span>
                 <h2 className="font-sans text-3xl font-bold uppercase tracking-wider text-white">
                   {country.country} Student Visa ({country.visaType})
                 </h2>
               </div>
-              <p className="font-mono text-xs text-white/50">
-                OFFICIAL VISA APPROVAL RATE: <strong className="text-emerald-400">{country.successRate}</strong>
+              <p className="font-mono text-xs text-white/60 tracking-wider">
+                OFFICIAL VISA APPROVAL RATE: <strong className="text-emerald-400 font-bold ml-1">{country.successRate}</strong>
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
-              <div className="p-4 bg-[#14141c] border border-white/10">
-                <span className="text-white/40 block text-[0.65rem] mb-1">PROCESSING DURATION</span>
-                <span className="text-white font-bold">{country.processingTime}</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 font-mono text-xs">
+              <div className="p-6 bg-[#14141c] border border-white/15 rounded-xl space-y-2">
+                <span className="text-white/40 block text-[0.68rem] tracking-wider uppercase">PROCESSING DURATION</span>
+                <span className="text-white font-bold text-sm">{country.processingTime}</span>
               </div>
 
-              <div className="p-4 bg-[#14141c] border border-white/10">
-                <span className="text-white/40 block text-[0.65rem] mb-1">EMBASSY INTERVIEW</span>
-                <span className="text-white font-bold">{country.interviewRequired}</span>
+              <div className="p-6 bg-[#14141c] border border-white/15 rounded-xl space-y-2">
+                <span className="text-white/40 block text-[0.68rem] tracking-wider uppercase">EMBASSY INTERVIEW</span>
+                <span className="text-white font-bold text-sm">{country.interviewRequired}</span>
               </div>
             </div>
 
             <div>
-              <h3 className="label-mono text-white/40 block mb-3">FINANCIAL PROOF CRITERIA</h3>
-              <div className="p-4 bg-[#14141c] border border-white/15 font-mono text-sm text-white">
+              <h3 className="label-mono text-white/50 block mb-4">FINANCIAL PROOF CRITERIA</h3>
+              <div className="p-6 bg-[#14141c] border border-white/15 rounded-xl font-mono text-sm text-white leading-relaxed">
                 💰 {country.financialProofReq}
               </div>
             </div>
 
             <div>
-              <h3 className="label-mono text-white/40 block mb-3">MANDATORY DOCUMENT CHECKLIST</h3>
-              <div className="space-y-2">
+              <h3 className="label-mono text-white/50 block mb-4">MANDATORY DOCUMENT CHECKLIST</h3>
+              <div className="space-y-3">
                 {country.keyDocuments.map((doc, idx) => (
-                  <div key={idx} className="flex items-center gap-3 p-3 bg-[#14141c] border border-white/10 text-xs text-white/80 font-mono">
-                    <CheckCircle2 className="w-4 h-4 text-white/70 shrink-0" />
+                  <div key={idx} className="flex items-center gap-4 p-4 bg-[#14141c] border border-white/15 rounded-xl text-xs text-white/90 font-mono">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                     <span>{doc}</span>
                   </div>
                 ))}
@@ -94,7 +94,7 @@ export default function VisaPage({ onBookConsultation }) {
           </div>
 
           {/* Right Column: Advisory & Mock Interview Box */}
-          <div className="lg:col-span-5 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/10 pt-8 lg:pt-0 lg:pl-12 space-y-6">
+          <div className="lg:col-span-5 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/15 pt-10 lg:pt-0 lg:pl-16 space-y-8">
             <div>
               <span className="label-mono text-white/40 block mb-3">EMBASSY PREPARATION</span>
               <h3 className="font-sans text-2xl font-bold uppercase tracking-wider text-white mb-4">
