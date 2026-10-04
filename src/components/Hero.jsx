@@ -33,7 +33,7 @@ export default function Hero({ onStartJourney }) {
       </motion.div>
 
       {/* Main Content Layout — Centered Container with Integrated Editorial Headline & Facts */}
-      <div className="relative z-10 site-container w-full pt-32 md:pt-40 pb-20 flex-1 flex flex-col justify-between">
+      <div className="relative z-10 site-container w-full pt-10 md:pt-16 pb-20 flex-1 flex flex-col justify-between">
         
         {/* Upper Meta Tag */}
         <motion.div

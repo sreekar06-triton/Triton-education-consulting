@@ -26,9 +26,9 @@ export default function UniversitiesPage({ onApplyUniversity }) {
   });
 
   return (
-    <div className="w-full bg-[#070709] text-white pt-32 pb-36 min-h-screen font-sans">
+    <div className="w-full bg-[#070709] text-white pt-10 md:pt-16 pb-36 min-h-screen font-sans">
       <div className="site-container">
-        
+
         {/* Header */}
         <div className="border-b border-white/10 pb-8 mb-12">
           <span className="label-mono text-white/40 block mb-3">
@@ -48,16 +48,17 @@ export default function UniversitiesPage({ onApplyUniversity }) {
         {/* Filter Bar */}
         <div className="bg-[#0e0e12] border border-white/15 p-8 md:p-10 rounded-2xl mb-14 space-y-8 shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            
-            {/* Search Input */}
-            <div className="md:col-span-5 relative">
-              <Search className="w-4 h-4 text-white/40 absolute left-4 top-1/2 -translate-y-1/2" />
+
+            {/* Search Input - Fixed Icon & Text Separation */}
+            <div className="md:col-span-5 relative flex items-center">
+              <Search className="w-4 h-4 text-white/40 absolute left-4 pointer-events-none z-10 shrink-0" />
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search by university name, city, course..."
-                className="w-full bg-[#16161d] border border-white/20 pl-11 pr-4 py-3 text-sm text-white rounded-xl outline-none focus:border-white transition-colors"
+                style={{ paddingLeft: '3.5rem' }}
+                className="w-full bg-[#16161d] border border-white/20 pl-14 pr-4 py-3 text-sm text-white rounded-xl outline-none focus:border-white transition-colors"
               />
             </div>
 

@@ -34,13 +34,7 @@ export default function Navbar({ activePage, setActivePage, openAuthModal, openS
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-[#070709]/90 backdrop-blur-md py-4 border-b border-white/10'
-          : 'bg-transparent py-6'
-      }`}
-    >
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#070709] border-b border-white/10 py-4 transition-all duration-300">
       <div className="site-container flex items-center justify-between">
         {/* Brand Logo */}
         <button
@@ -61,11 +55,10 @@ export default function Navbar({ activePage, setActivePage, openAuthModal, openS
             <button
               key={item.page}
               onClick={() => handleNavClick(item.page)}
-              className={`font-mono text-[0.7rem] xl:text-xs uppercase tracking-[0.15em] bg-transparent border-none cursor-pointer transition-all duration-300 relative py-1 ${
-                activePage === item.page
+              className={`font-mono text-[0.7rem] xl:text-xs uppercase tracking-[0.15em] bg-transparent border-none cursor-pointer transition-all duration-300 relative py-1 ${activePage === item.page
                   ? 'text-white font-semibold'
                   : 'text-white/60 hover:text-white'
-              }`}
+                }`}
             >
               {item.label}
               {activePage === item.page && (

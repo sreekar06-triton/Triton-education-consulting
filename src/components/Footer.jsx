@@ -6,7 +6,7 @@ export default function Footer({ setActivePage }) {
     <footer className="bg-[#050507] text-white pt-24 pb-12 border-t border-white/10 font-sans">
       <div className="site-container">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
-          
+
           {/* Brand & Mission Column */}
           <div className="md:col-span-4 space-y-4">
             <span className="font-mono text-3xl font-bold tracking-[0.2em] uppercase text-white block">

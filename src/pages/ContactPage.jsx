@@ -10,7 +10,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="w-full bg-[#070709] text-white pt-32 pb-36 min-h-screen font-sans">
+    <div className="w-full bg-[#070709] text-white pt-10 md:pt-16 pb-36 min-h-screen font-sans">
       <div className="site-container">
         
         {/* Header */}
